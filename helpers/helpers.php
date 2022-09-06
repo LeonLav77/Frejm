@@ -1,7 +1,8 @@
 <?php
 
-use App\Base\Response;
 use bootstrap\App;
+use helpers\DotEnv;
+use App\Base\Response;
 
 function d($data){
     if(is_null($data)){
@@ -49,4 +50,14 @@ function ddt($message = ""){
 
 function response($data){
     return new Response($data);
+}
+function config($config){
+    $config = explode(".", $config);
+    $file = $config[0];
+    $configFile = require "../config/$file.php";
+    return $configFile[$config[1]];
+}
+function env($key, $default = null){
+    (new DotEnv(__DIR__ . '../../.env'))->load();
+    return getenv($key) ? getenv($key) : $default;
 }

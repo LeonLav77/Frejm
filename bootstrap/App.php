@@ -8,7 +8,6 @@ use App\Http\Kernel;
 class App {
     public $config;
     public function __construct() {
-
         $this->registerConfig();
         $this->registerProviders();
         $this->bootProviders();
@@ -18,7 +17,7 @@ class App {
         return new Kernel($this, new Router());
     }
     public function registerConfig() {
-        $path    = '../config';
+        $path = '../config';
         $files = scandir($path);
         $files = array_diff(scandir($path), array('.', '..'));
         foreach($files as $file){

@@ -1,7 +1,7 @@
 <?php
 
-include "autoload.php";
-include "helpers.php";
+require "autoload.php";
+require "../helpers/helpers.php";
 use App\Base\Request;
 use bootstrap\app;
 
