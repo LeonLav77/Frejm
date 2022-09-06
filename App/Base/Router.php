@@ -2,12 +2,12 @@
 
 namespace App\Base;
 
+use routes\Routes;
 use App\Base\Response;
 
 class Router {
     public $routes = [];
     public function __construct(){
-        require_once __DIR__ . '/routes.php';
         $this->routes = (new Routes)->routes;
     }
     public function handle($request){

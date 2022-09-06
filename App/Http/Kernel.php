@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use bootstrap\App;
 use App\Base\Router;
 use App\Base\Response;
 
@@ -11,8 +12,12 @@ class Kernel {
         \App\Middleware\ParamMiddleware::class,
     ];
     public $router;
-    public function __construct(){
-        $this->router = new Router();
+    public $app;
+    public function __construct(App $app, Router $router) {
+         
+        $this->app = $app;
+        $this->router = $router;
+
         $this->middleware = array_map(function($middleware){
             return new $middleware;
         }, $this->middleware);
