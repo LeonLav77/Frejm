@@ -18,4 +18,15 @@ trait HasEloquent {
         }
         return $result;
     }
+    public static function first(){
+        $model = new static;
+        $sql = "SELECT * FROM {$model->table} LIMIT 1";
+        $output = parent::$conn->query($sql);
+        $result = \helpers\MySqli::standardizeOutput($output);
+        $newModel = new static($result[0]);
+        foreach($result[0] as $attributeName => $attributeValue){
+            $newModel->setAttribute($attributeName, $attributeValue);
+        }
+        return $newModel;
+    }
 }

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Base\Request;
+use App\Models\User;
 
 class BaseController{
     public function index(Request $request){
-        return $request;
+        $users = User::all();
+        return $users;
     }
 
     public function migrate(){
