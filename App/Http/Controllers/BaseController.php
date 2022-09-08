@@ -8,6 +8,7 @@ class BaseController{
     public function index(Request $request){
         return $request;
     }
+
     public function migrate(){
         $migrations = scandir(__DIR__ . "\..\..\..\database\migrations");
         $migrations = array_filter($migrations, function($migration){
@@ -20,7 +21,7 @@ class BaseController{
             $migration = new $migration;
             $migration();
         }
-        dd($migration);
+        dd($migrations);
 
     }
 }

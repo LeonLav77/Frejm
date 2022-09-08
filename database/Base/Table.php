@@ -26,7 +26,7 @@ class Table
 
         return (new MySqlConnection)->query($sql);
     }
-    public function drop($table){
+    public static function drop($table){
         $sql = "DROP TABLE IF EXISTS $table";
         return (new MySqlConnection)->query($sql);
     }

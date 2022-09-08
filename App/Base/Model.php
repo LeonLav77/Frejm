@@ -2,7 +2,6 @@
 
 namespace App\Base;
 
-use database\Base\MySqlConnection;
 use database\base\ConnectionInterface;
 
 abstract class Model {
@@ -15,5 +14,8 @@ abstract class Model {
 
     public static function setConnection(ConnectionInterface $conn) {
         self::$conn = $conn;
+    }
+    public function setAttribute($name, $value) {
+        $this->$name = $value;
     }
 }
