@@ -37,4 +37,7 @@ class App {
             $provider->boot();
         }
     }
+    public function bind($key, $value) {
+        $this->$key = $value;
+    }
 }

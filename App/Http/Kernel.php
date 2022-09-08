@@ -3,7 +3,9 @@
 namespace App\Http;
 
 use bootstrap\App;
+use App\Base\Model;
 use App\Base\Router;
+use App\Models\User;
 use App\Base\Response;
 
 class Kernel {
@@ -14,7 +16,8 @@ class Kernel {
     public $router;
     public $app;
     public function __construct(App $app, Router $router) {
-         
+        $user = new User();
+        
         $this->app = $app;
         $this->router = $router;
 

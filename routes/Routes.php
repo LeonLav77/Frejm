@@ -11,6 +11,7 @@ class Routes {
         $this->addRoute(Route::get('/',BaseController::class,'index'));
         $this->addRoute(Route::get('/test',BaseController::class,'list'));
         $this->addRoute(Route::get('/testT',BaseController::class,'view'));
+        $this->addRoute(Route::get('/migrate',BaseController::class,'migrate'));
         return $this;
     }
     public function addRoute($route) {
