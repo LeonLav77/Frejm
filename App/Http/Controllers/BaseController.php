@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Base\Request;
 use App\Models\User;
+use App\Base\Request;
+use database\Base\DB;
 
 class BaseController{
     public function index(Request $request){
-        $users = User::all();
-        return $users;
+        // $user = DB::table('users')->get();
+        // $user = DB::table('users')->select('name', 'email')->where('name','=', 'John')->first();
+        $user = User::first();
+        return $user;
     }
 
     public function migrate(){
@@ -23,7 +26,6 @@ class BaseController{
             $migration = new $migration;
             $migration();
         }
-        dd($migrations);
 
     }
 }

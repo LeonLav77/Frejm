@@ -21,8 +21,6 @@ class Table
         }
         $sql = implode(',',$sql);
         $sql = "CREATE TABLE IF NOT EXISTS $table ($sql)";
-        // dd($sql);        
-        // dd($blueprint->columns);
 
         return (new MySqlConnection)->query($sql);
     }

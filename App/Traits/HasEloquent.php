@@ -2,31 +2,79 @@
 
 namespace App\Traits;
 
-trait HasEloquent {
-    public static function all() {
-        $model = new static;
-        $sql = "SELECT * FROM {$model->table}";
-        $output = parent::$conn->query($sql);
-        $result = \helpers\MySqli::standardizeOutput($output);
-        foreach($result as $key => $value){
-            $newModel = new static($value);
-            foreach($value as $attributeName => $attributeValue){
-                $newModel->setAttribute($attributeName, $attributeValue);
-            }
-            $result[$key] = $newModel;
-            // $result[$key] = ;
+use App\Base\Model;
+use database\Base\QueryExcecutor;
+
+abstract class HasEloquent {
+    public static $DBTable;
+    public static $where;
+    public static $select;
+    public static $limit;
+    public static $orderBy;
+    public static $query;
+
+    public static function makeQuery(){
+        $query = '';
+        if (static::$select){
+            $query .= "SELECT " . static::$select . ' FROM ' . static::$DBTable;
+        }else{
+            $query = "SELECT * FROM " . static::$DBTable;
         }
-        return $result;
+        if (static::$where){
+            $query .= " WHERE " . static::$where;
+        }
+        if (static::$limit){
+            $query .= " LIMIT " . static::$limit . ';';
+        }
+        if (static::$orderBy){
+            $query .= " ORDER BY " . static::$orderBy;
+        }
+        static::$query = $query;
+        $output = QueryExcecutor::execute($query);
+        return $output;
+    }
+    public static function table($DBTable){
+        self::$DBTable = $DBTable;
+        return new static();
+    }
+    public static function where($condition, $operator, $value){
+        self::$where = " {$condition} {$operator} '{$value}'";
+        return new static();
+    }
+    public static function select(){
+        $args = func_get_args();
+        $query = '';
+        foreach($args as $index => $arg){
+            if($index == array_key_last($args)){
+                $query .= $arg;
+                continue;    
+            }
+            $query .= $arg . ',';
+        }
+        self::$select = $query;
+        return new static();
+    }
+
+    // FINISHING METHODS
+    public static function setUpTable(){
+        if((new static) instanceof Model){
+            self::$DBTable = (new static)->table;
+        }
     }
     public static function first(){
-        $model = new static;
-        $sql = "SELECT * FROM {$model->table} LIMIT 1";
-        $output = parent::$conn->query($sql);
-        $result = \helpers\MySqli::standardizeOutput($output);
-        $newModel = new static($result[0]);
-        foreach($result[0] as $attributeName => $attributeValue){
-            $newModel->setAttribute($attributeName, $attributeValue);
-        }
-        return $newModel;
+        self::setUpTable();
+        self::$limit = 1;
+        $output = self::makeQuery();
+        return $output[0];
+    }
+    public static function get(){
+        $output = self::makeQuery();
+        return $output;
+    }
+    public static function all(){
+        self::setUpTable();
+        self::$select = '*';
+        $output = self::makeQuery();
+        return $output;
     }
 }
