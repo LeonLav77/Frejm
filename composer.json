@@ -1,7 +1,8 @@
 {
     "name": "leonlav/frejm",
     "description": "This is Frejm",
-    "type": "library",
+    "type": "project",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Leonlav\\Frejm\\": "src/"
