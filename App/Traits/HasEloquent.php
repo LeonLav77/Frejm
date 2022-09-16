@@ -12,7 +12,6 @@ abstract class HasEloquent {
     public static $limit;
     public static $orderBy;
     public static $query;
-
     public static function makeQuery(){
         $query = '';
         if (static::$select){
@@ -30,7 +29,7 @@ abstract class HasEloquent {
             $query .= " ORDER BY " . static::$orderBy;
         }
         static::$query = $query;
-        $output = QueryExcecutor::execute($query);
+        $output = QueryExcecutor::execute($query, get_called_class());
         return $output;
     }
     public static function table($DBTable){
@@ -75,6 +74,27 @@ abstract class HasEloquent {
         self::setUpTable();
         self::$select = '*';
         $output = self::makeQuery();
+        return $output;
+    }
+    public static function insert(){
+        self::setUpTable();
+        $args = func_get_args();
+        if(count($args) == 1){
+            $args = $args[0];
+        }
+        $columntNames = '';
+        $values = '';
+        foreach($args as $index => $arg){
+            if($index == array_key_last($args)){
+                $columntNames .= $index;
+                $values .= "'{$arg}'";
+                continue;    
+            }
+            $columntNames .= $index . ',';
+            $values .= "'{$arg}',";
+        }
+        $query = "INSERT INTO " . static::$DBTable . " (" . $columntNames . ") VALUES (" . $values . ");";
+        $output = QueryExcecutor::execute($query);
         return $output;
     }
 }

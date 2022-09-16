@@ -8,7 +8,15 @@ use database\base\ConnectionInterface;
 class QueryExcecutor{
     public static $conn;
     public static function execute($query, $model = 'stdClass'){
-        $output = self::$conn->query($query);
+        try {
+            $output = self::$conn->query($query);
+          } catch ( \Exception $e ) {
+            echo $e->getMessage();
+            die();
+          }
+        if(gettype($output) == 'boolean'){
+            return $output;
+        }
         $result = \helpers\MySqli::standardizeOutput($output);
         $result = self::convertToModel($result, $model);
         return $result;

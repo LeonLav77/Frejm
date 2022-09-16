@@ -9,8 +9,19 @@ use database\Base\DB;
 class BaseController{
     public function index(Request $request){
         // $user = DB::table('users')->get();
-        // $user = DB::table('users')->select('name', 'email')->where('name','=', 'John')->first();
+        // $user = DB::table('users')->select('name', 'email','id')->where('name','=', 'John')->first();
         $user = User::first();
+        return $user;
+    }
+    public function insert(Request $request){
+        // $user = User::insert([
+        //     'name' => 'Johnied',
+        //     'email' => 'leonlavi77@gmail.com',
+        //     'password' => '123456'
+        // ]);
+        $user = User::first();
+        // $user->name = 'Johnied1';
+        // $user->save();
         return $user;
     }
 

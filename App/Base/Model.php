@@ -11,7 +11,7 @@ abstract class Model extends HasEloquent {
     public static $conn;
 
     public function __construct($class) {
-        $className = get_class($class);
+       $className = get_class($class);
        $this->table = strtolower(substr($className, strrpos($className, '\\') + 1)) . 's';
     }
     public static function setConnection(ConnectionInterface $conn) {
