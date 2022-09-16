@@ -1,10 +1,10 @@
 {
-    "name": "leon/frejm",
+    "name": "leonlav/frejm",
     "description": "This is Frejm",
     "type": "library",
     "autoload": {
         "psr-4": {
-            "Leon\\Frejm\\": "src/"
+            "Leonlav\\Frejm\\": "src/"
         }
     },
     "authors": [
