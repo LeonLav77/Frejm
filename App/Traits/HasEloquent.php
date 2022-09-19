@@ -94,7 +94,7 @@ abstract class HasEloquent {
             $values .= "'{$arg}',";
         }
         $query = "INSERT INTO " . static::$DBTable . " (" . $columntNames . ") VALUES (" . $values . ");";
-        $output = QueryExcecutor::execute($query);
+        $output = QueryExcecutor::execute($query) ?? null;
         return $output;
     }
 }

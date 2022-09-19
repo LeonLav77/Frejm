@@ -10,8 +10,8 @@ use App\Base\Response;
 
 class Kernel {
     public $middleware = [ 
-        \App\Middleware\VerbMiddleware::class,
-        \App\Middleware\ParamMiddleware::class,
+        \App\Http\Middleware\VerbMiddleware::class,
+        \App\Http\Middleware\ParamMiddleware::class,
     ];
     public $router;
     public $app;
