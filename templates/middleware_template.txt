@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+
+class {$name}
+{
+    public function __invoke($request) : object
+    {
+
+        if (true) {
+            return $request;
+        }
+        
+        return response("Did not pass {$name}");
+    }
+}
