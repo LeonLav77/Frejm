@@ -2,9 +2,13 @@
 <?php
 
 // NEED TO ADD AUTOLOADER, when i transition to library/project it will get fixed
+require_once 'public/autoload.php';
+require_once 'helpers/helpers.php';
+
+use bootstrap\App;
 use console\Command;
 
-require_once 'console\Command.php';
+$app = new App();
 
 $command = new Command($argv);
 $command->run();

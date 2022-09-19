@@ -61,3 +61,6 @@ function env($key, $default = null){
     (new DotEnv(__DIR__ . '../../.env'))->load();
     return getenv($key) ? getenv($key) : $default;
 }
+function baseDir(){
+    return __DIR__ . "/../";
+}

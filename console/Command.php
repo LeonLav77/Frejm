@@ -2,7 +2,8 @@
 
 namespace console;
 
-require 'MakeFile.php';
+use console\MakeFile;
+use database\Base\DB;
 
 class Command {
     public $command;
@@ -58,11 +59,22 @@ class Command {
         echo "This is help command. It will show you all available commands.\n";
     }
     public function migrate($arg = null){
-        echo "This is migrate command. It will migrate all migrations.\n";
+        $migrations = scandir(baseDir() . "\database\migrations");
+        $migrations = array_filter($migrations, function($migration){
+            return $migration != "." && $migration != "..";
+        });
+        $migrations = array_map(function($migration){
+            return "database\\migrations\\" . str_replace(".php", "", $migration);
+        }, $migrations);
+        foreach($migrations as $migration){
+            $migration = new $migration;
+            $migration();
+        }
+        echo "Migrated";
     }
     public function make($arg = null){
         if($arg == null || !in_array($arg, $this->makeable_classes) || !isset($this->args[0])){	
-            echo "This is make command. It will make new file. Don't forget the name\n";
+            echo "This is make command. It will make new file. Don't forget the name of the file\n";
             echo "Available args: controller, model, migration, route\n";
             return;
         }

@@ -17,12 +17,12 @@ class App {
         return new Kernel($this, new Router());
     }
     public function registerConfig() {
-        $path = '../config';
+        $path = baseDir() . '/config/';
         $files = scandir($path);
         $files = array_diff(scandir($path), array('.', '..'));
         foreach($files as $file){
             $file = str_replace('.php', '', $file);
-            $this->config[$file] = require_once "../config/$file.php";
+            $this->config[$file] = require_once baseDir() . "/config/$file.php";
         }
     }
     public function registerProviders(){

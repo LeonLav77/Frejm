@@ -8,9 +8,10 @@ use database\Base\Blueprint;
 
 class create_trains_table extends Migration{
     public function up(){
-        // NULLABLE BY DEFAULT
         Table::create('trains', function(Blueprint $table){
             $table->id();
+            $table->string('name')->unique();
+
         });
     }
     public function down(){

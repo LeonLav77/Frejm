@@ -14,11 +14,11 @@ class BaseController{
         return $user;
     }
     public function insert(Request $request){
-        // $user = User::insert([
-        //     'name' => 'Johnied',
-        //     'email' => 'leonlavi77@gmail.com',
-        //     'password' => '123456'
-        // ]);
+        $user = User::insert([
+            'name' => 'Johnied',
+            'email' => 'leonlavi77@gmail.com',
+            'password' => '123456'
+        ]);
         $user = User::first();
         // $user->name = 'Johnied1';
         // $user->save();
@@ -26,7 +26,7 @@ class BaseController{
     }
 
     public function migrate(){
-        $migrations = scandir(__DIR__ . "\..\..\..\database\migrations");
+        $migrations = scandir(baseDir() . "\database\migrations");
         $migrations = array_filter($migrations, function($migration){
             return $migration != "." && $migration != "..";
         });
