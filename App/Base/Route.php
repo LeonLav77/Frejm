@@ -7,14 +7,12 @@ class Route{
     public $action;
     public $controller;
     public $method;
-    public $middleware;
 
-    public function __construct($method, $uri,$controller, $action, $middleware = []){
+    public function __construct($method, $uri,$controller, $action){
         $this->method = $method;
         $this->uri = $uri;
         $this->controller = $controller;
         $this->action = $action;
-        $this->middleware = $middleware;
     }
 
     public static function get($route,$controller,$action){

@@ -10,8 +10,12 @@ use App\Base\Response;
 
 class Kernel {
     public $middleware = [ 
-        \App\Http\Middleware\VerbMiddleware::class,
         \App\Http\Middleware\ParamMiddleware::class,
+        \App\Http\Middleware\VerbMiddleware::class,
+    ];
+    public $routeMiddleware = [
+        'param' => \App\Http\Middleware\ParamMiddleware::class,
+        'test' => \App\Http\Middleware\TestMiddleware::class,
     ];
     public $router;
     public $app;
@@ -25,9 +29,7 @@ class Kernel {
     }
     public function handle($request){
         $response = $this->router->handle($request);
-
         $error = $this->handleMiddleware($request);
-        
         if ($error){
             return $error;
         }
@@ -36,6 +38,7 @@ class Kernel {
 
     public function handleMiddleware($request){
         $error = 0;
+        $this->combineMiddleware($request);
         foreach($this->middleware as $middleware){
             if($error instanceof Response){
                 return $error;
@@ -43,5 +46,16 @@ class Kernel {
             $error = $middleware($request);
         }
     }
-
+    public function combineMiddleware($request){
+        if(!isset($this->router->routes[$request->uri]->middleware)){
+            return;
+        }
+        $routeMiddleware = $this->router->routes[$request->uri]->middleware;
+        if (!is_array($routeMiddleware)){
+            $routeMiddleware = [$routeMiddleware];
+        }
+        foreach ($routeMiddleware as $middleware){
+            $this->middleware[] = new $this->routeMiddleware[$middleware];
+        }
+    }
 }

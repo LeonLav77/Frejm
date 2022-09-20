@@ -42,10 +42,10 @@ class MakeFile {
         echo "Migration created.\n";
     }
     public static function middleware($name){
-        fopen('app/Http/Controllers/'. $name .'.php', 'w');
-        $template = file_get_contents('templates/controller_template.txt');
+        fopen('app/Http/Middleware/'. $name .'.php', 'w');
+        $template = file_get_contents('templates/middleware_template.txt');
         $template = str_replace('{$name}', $name, $template);
-        file_put_contents('app/Http/Controllers/'. $name .'.php', $template);
+        file_put_contents('app/Http/Middleware/'. $name .'.php', $template);
         echo "This is middleware command. It will create middleware file.\n";
     }
     public static function getTableName($name){
