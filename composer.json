@@ -15,5 +15,7 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "leonlav77/frejmcore": "dev-master"
+    }
 }

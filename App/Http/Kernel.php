@@ -3,10 +3,8 @@
 namespace App\Http;
 
 use bootstrap\App;
-use App\Base\Router;
-use App\Models\User;
-use database\Base\DB;
-use App\Base\Response;
+use Leonlav77\Frejmcore\Base\Router;
+use Leonlav77\Frejmcore\Base\Response;
 
 class Kernel {
     public $middleware = [ 

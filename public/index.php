@@ -1,9 +1,11 @@
 <?php
 
-require "autoload.php";
-require "../helpers/helpers.php";
-use App\Base\Request;
-use bootstrap\app;
+// require "autoload.php";
+// require "../helpers/helpers.php";
+require "../vendor/autoload.php";
+
+use bootstrap\App;
+use Leonlav77\Frejmcore\Base\Request;
 
 $request = new Request(); // the request object
 $app = new App(); // usually there would be another step for instanciating a few more singletons

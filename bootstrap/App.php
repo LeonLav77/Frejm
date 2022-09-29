@@ -2,8 +2,8 @@
 
 namespace bootstrap;
 
-use App\Base\Router;
 use App\Http\Kernel;
+use Leonlav77\Frejmcore\Base\Router;
 
 class App {
     public $config;

@@ -4,12 +4,53 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d367edfbc9f24044be7fc59286746967",
-    "packages": [],
+    "content-hash": "c0dc7eddbf97334d9c97f1bd2a9cb5ed",
+    "packages": [
+        {
+            "name": "leonlav77/frejmcore",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LeonLav77/FrejmCore.git",
+                "reference": "1d8d67279c544b35552e96f797bfbe3b0e01855b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LeonLav77/FrejmCore/zipball/1d8d67279c544b35552e96f797bfbe3b0e01855b",
+                "reference": "1d8d67279c544b35552e96f797bfbe3b0e01855b",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Leonlav77\\Frejmcore\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Leon",
+                    "email": "leonlav77@gmail.com"
+                }
+            ],
+            "description": "This is the core package for the Frejm project",
+            "support": {
+                "issues": "https://github.com/LeonLav77/FrejmCore/issues",
+                "source": "https://github.com/LeonLav77/FrejmCore/tree/master"
+            },
+            "time": "2022-09-20T09:28:47+00:00"
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "leonlav77/frejmcore": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

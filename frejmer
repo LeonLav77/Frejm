@@ -6,7 +6,7 @@ require_once 'public/autoload.php';
 require_once 'helpers/helpers.php';
 
 use bootstrap\App;
-use console\Command;
+use Leonlav77\Frejmcore\console\Command;
 
 $app = new App();
 
