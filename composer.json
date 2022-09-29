@@ -22,5 +22,6 @@
     "require": {
         "leonlav77/frejmcore": "dev-master @dev"
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "stability" : "stable"
 }
