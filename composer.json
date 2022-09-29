@@ -1,5 +1,8 @@
 {
-    "name": "admin/projecttest",
+    "name": "leonlav/frejm",
+    "description": "This is Frejm",
+    "type": "project",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Admin\\Projecttest\\": "src/",
