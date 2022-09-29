@@ -1,21 +1,23 @@
 {
-    "name": "leonlav/frejm",
-    "description": "This is Frejm",
-    "type": "project",
-    "license": "MIT",
+    "name": "admin/projecttest",
     "autoload": {
         "psr-4": {
-            "Leonlav\\Frejm\\": "/"
-        }
+            "Admin\\Projecttest\\": "src/",
+			"App\\": "App/",
+            "routes\\": "routes/"
+        },
+        "files": [
+			"App/Utils/helpers.php"
+		]
     },
     "authors": [
         {
-            "name": "Leonlav",
+            "name": "Leon",
             "email": "leonlav77@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "leonlav77/frejmcore": "dev-master"
-    }
+    },
+    "minimum-stability": "dev"
 }

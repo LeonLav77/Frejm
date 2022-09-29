@@ -10,5 +10,5 @@ use Leonlav77\Frejmcore\console\Command;
 
 $app = new App();
 
-$command = new Command($argv);
+$command = new Cowmmand($argv);
 $command->run();
