@@ -20,7 +20,7 @@
         }
     ],
     "require": {
-        "leonlav77/frejmcore": "dev-master"
+        "leonlav77/frejmcore": "dev-master @dev"
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "dev"
 }
