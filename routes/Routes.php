@@ -2,7 +2,7 @@
 
 namespace routes;
 
-use App\Base\Route;
+use Leonlav77\Frejmcore\Base\Route;
 use App\Http\Controllers\BaseController;
 
 class Routes {

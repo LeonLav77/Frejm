@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use App\Base\Model;
-use database\Base\QueryExcecutor;
-use database\Base\MySqlConnection;
+use Leonlav77\Frejmcore\Base\Model;
+use Leonlav77\Frejmcore\database\Base\QueryExcecutor;
+use Leonlav77\Frejmcore\database\Base\MySqlConnection;
 
 class AppServiceProvider extends ServiceProvider {
     public function register() {

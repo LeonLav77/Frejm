@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use App\Base\Model;
+use Leonlav77\Frejmcore\Base\Model;
+
 final class User extends Model
 {
     public function __construct() {

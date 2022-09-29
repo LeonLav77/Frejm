@@ -17,7 +17,7 @@ class App {
         return new Kernel($this, new Router());
     }
     public function registerConfig() {
-        $path = baseDir() . '/config/';
+        $path = baseDir() . "config";
         $files = scandir($path);
         $files = array_diff(scandir($path), array('.', '..'));
         foreach($files as $file){
@@ -41,3 +41,5 @@ class App {
         $this->$key = $value;
     }
 }
+
+return new App();

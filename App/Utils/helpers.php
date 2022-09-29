@@ -1,8 +1,7 @@
 <?php
 
-use bootstrap\App;
-use helpers\DotEnv;
-use App\Base\Response;
+use Leonlav77\Frejmcore\Base\Response;
+use Leonlav77\Frejmcore\helpers\DotEnv;
 
 function d($data){
     if(is_null($data)){
@@ -54,13 +53,13 @@ function response($data){
 function config($config){
     $config = explode(".", $config);
     $file = $config[0];
-    $configFile = require "../config/$file.php";
+    $configFile = require "config/$file.php";
     return $configFile[$config[1]];
 }
 function env($key, $default = null){
-    (new DotEnv(__DIR__ . '../../.env'))->load();
+    (new DotEnv(baseDir() . '.env'))->load();
     return getenv($key) ? getenv($key) : $default;
 }
 function baseDir(){
-    return __DIR__ . "/../";
+    return __DIR__ . "/../../";
 }

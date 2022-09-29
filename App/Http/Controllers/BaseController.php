@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Base\Request;
 use database\Base\DB;
+use Leonlav77\Frejmcore\Base\Request;
 
 class BaseController{
     public function index(Request $request){
