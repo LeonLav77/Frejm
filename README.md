@@ -1,27 +1,32 @@
 # Frejm
-Another PHP Framework??
 
-FREJM
-Have you ever worked with a MVC framework such as Laravel or Symphony and said: "I wish this was a MC framework made by a single junior developer...". You haven't? Weirdo.
-Well I'd like to introduce you to Frejm it's an MC(Model Controller) framework for people that really wanna suffer while programming web apps.
-It is also basically a stripped and much much worse version of Laravel.
-We could talk about all the features it has, but I think it's better to talk about all the features that it doesn't have(in no particular order):
-  - A documentation
-  - Facade classes
-  - Full middleware support
-  - Terminable middleware
-  - Group Routing
-  - Route model binding
-  - Name routes
-  - Any kind of security whatsoever
-  - Resource Controllers
-  - VIEWS??? But who needs those anyways
-  - Any support for outside packages
-  - Composer support
-  - Validation
-  - Any kind of error or exception handling
-  - and since the list is getting pretty long : Broadcasting, Contracts, Events, Mail, Localization, Rate Limiting
-  - and so on...
-  
-On a more serious note: 
-    This is a stripped Laravel copy framework made as a personal project. It is not intented for use by anyone.
+This project is a hobby project inspired by Laravel, a powerful PHP framework for web artisans. It aims to replicate some of the features and functionalities of Laravel while providing a learning experience for developers interested in understanding how frameworks like Laravel work under the hood.
+
+## Features
+
+- **Routing**: Implement simple routing mechanism to handle HTTP requests.
+- **Middleware**: Integrate middleware for handling HTTP requests.
+- **Database**: Support basic database operations using MySQL
+- **Migrations**: Manage database schema changes and version control with migrations.
+- **Config**: Manage configuration settings for the application.
+- **Custom Autoloader**: Implement a custom autoloader for class loading without external dependencies.
+
+## Installation
+
+1. Initialize the project:
+
+   ```
+   composer create-project leonlav/frejm [project_name] --stability=dev
+   ```
+
+2. Prepare database:
+   ```
+    Setup the .env file
+    Create the databse with name
+    php frejmer migrate
+   ```
+
+3. Get to know the commands:
+   ```
+    php frejmer help
+   ```
