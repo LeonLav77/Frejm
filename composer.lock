@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c0dc7eddbf97334d9c97f1bd2a9cb5ed",
+    "content-hash": "14042a5060298cb10701f653ed27a226",
     "packages": [
         {
             "name": "leonlav77/frejmcore",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LeonLav77/FrejmCore.git",
-                "reference": "a5a92fc74975abf2de2ae35e07e12ac684dc21b3"
+                "reference": "f13b410a5fe9854c7111e39598f6e1680958327c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LeonLav77/FrejmCore/zipball/a5a92fc74975abf2de2ae35e07e12ac684dc21b3",
-                "reference": "a5a92fc74975abf2de2ae35e07e12ac684dc21b3",
+                "url": "https://api.github.com/repos/LeonLav77/FrejmCore/zipball/f13b410a5fe9854c7111e39598f6e1680958327c",
+                "reference": "f13b410a5fe9854c7111e39598f6e1680958327c",
                 "shasum": ""
             },
             "default-branch": true,
@@ -42,7 +42,7 @@
                 "issues": "https://github.com/LeonLav77/FrejmCore/issues",
                 "source": "https://github.com/LeonLav77/FrejmCore/tree/master"
             },
-            "time": "2022-09-29T05:56:42+00:00"
+            "time": "2024-03-06T17:28:00+00:00"
         }
     ],
     "packages-dev": [],
@@ -55,5 +55,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
