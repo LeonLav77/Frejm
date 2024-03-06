@@ -1,6 +1,6 @@
 # Frejm
 
-This project is a hobby project inspired by Laravel, a powerful PHP framework for web artisans. It aims to replicate some of the features and functionalities of Laravel while providing a learning experience for developers interested in understanding how frameworks like Laravel work under the hood.
+This project is a hobby project inspired by Laravel made solely by me. It aims to replicate some of the features and functionalities of Laravel while providing a learning experience for developers interested in understanding how frameworks like Laravel work under the hood.
 
 ## Features
 
@@ -29,4 +29,9 @@ This project is a hobby project inspired by Laravel, a powerful PHP framework fo
 3. Get to know the commands:
    ```
     php frejmer help
+   ```
+
+4. Start creating:
+   ```
+    Enjoy
    ```
