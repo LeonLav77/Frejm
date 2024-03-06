@@ -2,12 +2,13 @@
 
 namespace database\migrations;
 
-use App\Base\Migration;
-use database\Base\Table;
-use database\Base\Blueprint;
+use Leonlav77\Frejmcore\Base\Migration;
+use Leonlav77\Frejmcore\database\Base\Table;
+use Leonlav77\Frejmcore\database\Base\Blueprint;
 
 class create_users_table extends Migration{
     public function up(){
+        echo "Creating users table...\n";
         // NULLABLE BY DEFAULT
         Table::create('users', function(Blueprint $table){
             $table->id();
