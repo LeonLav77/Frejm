@@ -14,7 +14,7 @@ This project is a hobby project inspired by Laravel made solely by me. It aims t
 ## Prerequisites
 
 1. PHP >=8
-2. Mysql connection
+2. Mysql >= 5.6
 
 ## Installation
 
