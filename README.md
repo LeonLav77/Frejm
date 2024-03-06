@@ -11,6 +11,11 @@ This project is a hobby project inspired by Laravel made solely by me. It aims t
 - **Config**: Manage configuration settings for the application.
 - **Custom Autoloader**: Implement a custom autoloader for class loading without external dependencies.
 
+## Prerequisites
+
+1. PHP >=8
+2. Mysql connection
+
 ## Installation
 
 1. Initialize the project:
