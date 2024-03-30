@@ -2,49 +2,65 @@
 
 use Leonlav77\Frejmcore\Base\Response;
 use Leonlav77\Frejmcore\helpers\DotEnv;
+function enhancedDump($data, $exit = true) {
+    echo '<style>
+            body { font-family: Arial, sans-serif; font-size: 14px; }
+            .dump-wrapper { padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; background: #F9F9F9; }
+            .dump-title { padding: 5px; background-color: #F2F2F2; border-bottom: 1px solid #ddd; }
+            .dump-array-key { color: #008B8B; }
+            .dump-boolean-true { color: green; }
+            .dump-boolean-false { color: red; }
+            .dump-string { color: #DD1144; }
+            .dump-number { color: #0000FF; }
+        </style>';
 
-function d($data){
-    if(is_null($data)){
-        $str = "<i>NULL</i>";
-    }elseif($data == ""){
-        $str = "<i>Empty</i>";
-    }elseif(is_array($data)){
-        if(count($data) == 0){
-            $str = "<i>Empty array.</i>";
-        }else{
-            $str = "<table style=\"border-bottom:0px solid #000;\" cellpadding=\"0\" cellspacing=\"0\">";
-            foreach ($data as $key => $value) {
-                $str .= "<tr><td style=\"background-color:#008B8B; color:#FFF;border:1px solid #000;\">" . $key . "</td><td style=\"border:1px solid #000;\">" . d($value) . "</td></tr>";
+    function recursiveDump($data, $level = 0) {
+        if ($level > 10) { // Limit recursion to prevent deep nesting issues
+            echo 'Nesting level too deep';
+            return;
+        }
+
+        if (is_null($data)) {
+            echo '<i class="dump-null">NULL</i>';
+        } elseif (is_bool($data)) {
+            echo $data ? '<span class="dump-boolean-true">true</span>' : '<span class="dump-boolean-false">false</span>';
+        } elseif (is_array($data)) {
+            if (count($data) == 0) {
+                echo '<i class="dump-array-empty">Empty array</i>';
+            } else {
+                echo '<div class="dump-wrapper">';
+                foreach ($data as $key => $value) {
+                    echo '<div class="dump-title"><span class="dump-array-key">' . htmlspecialchars($key) . '</span></div>';
+                    echo '<div class="dump-content">';
+                    recursiveDump($value, $level + 1);
+                    echo '</div>';
+                }
+                echo '</div>';
             }
-            $str .= "</table>";
+        } elseif (is_string($data)) {
+            echo '<span class="dump-string">"' . htmlspecialchars($data) . '"</span>';
+        } elseif (is_numeric($data)) {
+            echo '<span class="dump-number">' . $data . '</span>';
+        } elseif (is_object($data)) {
+            $objectVars = get_object_vars($data);
+            if (empty($objectVars)) {
+                echo '<i class="dump-object-empty">Empty object (' . get_class($data) . ')</i>';
+            } else {
+                echo '<div class="dump-wrapper">';
+                echo '<div class="dump-title"><span class="dump-object-class">' . get_class($data) . '</span></div>';
+                recursiveDump($objectVars, $level + 1);
+                echo '</div>';
+            }
+        } else {
+            echo '<i class="dump-unknown">Unknown type</i>';
         }
-    }elseif(is_resource($data)){
-        while($arr = mysql_fetch_array($data)){
-            $data_array[] = $arr;
-        }
-        $str = d($data_array);
-    }elseif(is_object($data)){
-        $str = d(get_object_vars($data));
-    }elseif(is_bool($data)){
-        $str = "<i>" . ($data ? "True" : "False") . "</i>";
-    }else{
-        $str = $data;
-        $str = preg_replace("/\n/", "<br>\n", $str);
     }
-    return $str;
-}
 
-function dnl($data){
-    echo d($data) . "<br>\n";
-}
+    recursiveDump($data);
 
-function dd($data){
-    echo dnl($data);
-    exit;
-}
-
-function ddt($message = ""){
-    echo "[" . date("Y/m/d H:i:s") . "]" . $message . "<br>\n";
+    if ($exit) {
+        exit;
+    }
 }
 
 function response($data){
