@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use database\Base\DB;
+use App\Http\Controllers\Controller;
 use Leonlav77\Frejmcore\Base\Request;
 
-class BaseController{
+class BaseController extends Controller{
     public function index(Request $request){
         
         return "Hello World!";
