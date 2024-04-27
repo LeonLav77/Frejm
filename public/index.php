@@ -10,4 +10,4 @@ $app = require_once __DIR__ . '/../bootstrap/app.php'; // usually there would be
 
 $kernel = $app->make(); // puts the kernel inside service container
 $response = $kernel->handle($request); // request goes into the kernel and outputs a response
-var_dump($response);
+echo $response;
