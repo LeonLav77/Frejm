@@ -8,21 +8,8 @@ use Leonlav77\Frejmcore\Base\Request;
 
 class BaseController{
     public function index(Request $request){
-        // $user = DB::table('users')->get();
-        // $user = DB::table('users')->select('name', 'email','id')->where('name','=', 'John')->first();
-        $user = User::first();
-        return $user;
-    }
-    public function insert(Request $request){
-        $user = User::insert([
-            'name' => 'Johnied',
-            'email' => 'leonlavi77@gmail.com',
-            'password' => '123456'
-        ]);
-        $user = User::first();
-        // $user->name = 'Johnied1';
-        // $user->save();
-        return $user;
+        
+        return "Hello World!";
     }
 
     public function migrate(){
@@ -31,7 +18,9 @@ class BaseController{
             return $migration != "." && $migration != "..";
         });
         $migrations = array_map(function($migration){
-            return "database\\migrations\\" . str_replace(".php", "", $migration);
+            $className = "Database\\Migrations\\" . str_replace(".php", "", ucfirst($migration));
+
+            return $className;
         }, $migrations);
         foreach($migrations as $migration){
             $migration = new $migration;
