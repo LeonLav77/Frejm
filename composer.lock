@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LeonLav77/FrejmCore.git",
-                "reference": "68ca468058a97886d2a8b5f34c9ef56a76450f5f"
+                "reference": "6117aa383086e78dbb03d661bee326c804f36ed2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LeonLav77/FrejmCore/zipball/68ca468058a97886d2a8b5f34c9ef56a76450f5f",
-                "reference": "68ca468058a97886d2a8b5f34c9ef56a76450f5f",
+                "url": "https://api.github.com/repos/LeonLav77/FrejmCore/zipball/6117aa383086e78dbb03d661bee326c804f36ed2",
+                "reference": "6117aa383086e78dbb03d661bee326c804f36ed2",
                 "shasum": ""
             },
             "default-branch": true,
@@ -42,7 +42,7 @@
                 "issues": "https://github.com/LeonLav77/FrejmCore/issues",
                 "source": "https://github.com/LeonLav77/FrejmCore/tree/master"
             },
-            "time": "2024-04-27T13:56:24+00:00"
+            "time": "2024-04-27T14:53:35+00:00"
         }
     ],
     "packages-dev": [],
